@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<include resource="org/springframework/boot/logging/logback/base.xml"/>
+	<appender name="ROLLING_FILE" class="ch.qos.logback.classic.sift.SiftingAppender">
+		<discriminator>
+			<key>logFileName</key>
+			<defaultValue>main</defaultValue>
+		</discriminator>
+		<sift>
+			<appender name="FILE-${logFileName}" class="ch.qos.logback.core.rolling.RollingFileAppender">
+				<file>logs/aws.${logFileName}.log</file>
+				<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+					<pattern>%d %5p - [%8.8t] %-40.40logger{39}{%4L} : %m%n</pattern>
+				</encoder>
+				<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+				<FileNamePattern>logs/aws.${logFileName}.%i.log</FileNamePattern>
+				<MinIndex>1</MinIndex>
+				<MaxIndex>3</MaxIndex>
+			</rollingPolicy>
+			<triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+				<MaxFileSize>512KB</MaxFileSize>
+			</triggeringPolicy>
+			</appender>
+		</sift>
+	</appender>
+	
+	<springProfile name="default">
+		<root level="info">
+			<appender-ref ref="CONSOLE"/>
+		</root>
+	</springProfile>
+	<springProfile name="dev,uat">
+		<root level="debug">
+			<appender-ref ref="ROLLING_FILE"/>
+		</root>
+	</springProfile>
+	<springProfile name="prd">
+		<root level="info">
+			<appender-ref ref="ROLLING_FILE"/>
+		</root>
+	</springProfile>
+</configuration>

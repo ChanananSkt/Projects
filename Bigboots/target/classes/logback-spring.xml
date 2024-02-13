@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<include resource="org/springframework/boot/logging/logback/base.xml" />
+
+	<appender name="ROLLING_FILE_CPUCTX17" class="ch.qos.logback.classic.sift.SiftingAppender">
+		<discriminator>
+			<key>logFileName</key>
+			<defaultValue>main</defaultValue>
+		</discriminator>
+		<sift>
+			<appender name="FILE-${logFileName}" class="ch.qos.logback.core.rolling.RollingFileAppender">
+				<file>./SPCS_LOG/awsalarm/log.${logFileName}.log</file>
+				<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+					<pattern>%d %5p --- [%8.8t] %-40.40logger{39}{%4L} : %m%n</pattern>
+				</encoder>
+				<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+					<FileNamePattern>/SPCS_LOG/awsalarm/log.${logFileName}.%i.log</FileNamePattern>
+					<MinIndex>1</MinIndex>
+					<MaxIndex>7</MaxIndex>
+				</rollingPolicy>
+				<triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+					<MaxFileSize>1024KB</MaxFileSize>
+				</triggeringPolicy>
+			</appender>
+		</sift>
+	</appender>
+	<appender name="ROLLING_FILE_CPUCTX14" class="ch.qos.logback.classic.sift.SiftingAppender">
+		<discriminator>
+			<key>logFileName</key>
+			<defaultValue>main</defaultValue>
+		</discriminator>
+		<sift>
+			<appender name="FILE-${logFileName}" class="ch.qos.logback.core.rolling.RollingFileAppender">
+				<file>/SPCS_LOG/delcheck/delchk_X14_${logFileName}.log</file>
+				<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+					<pattern>%d %5p --- [%8.8t] %-40.40logger{39}{%4L} : %m%n</pattern>
+				</encoder>
+				<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+					<FileNamePattern>/SPCS_LOG/delcheck/delchk_X14_${logFileName}.%i.log</FileNamePattern>
+					<MinIndex>1</MinIndex>
+					<MaxIndex>7</MaxIndex>
+				</rollingPolicy>
+				<triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+					<MaxFileSize>1024KB</MaxFileSize>
+				</triggeringPolicy>
+			</appender>
+		</sift>
+	</appender>
+	<appender name="ROLLING_FILE_CPUCTX15" class="ch.qos.logback.classic.sift.SiftingAppender">
+		<discriminator>
+			<key>logFileName</key>
+			<defaultValue>main</defaultValue>
+		</discriminator>
+		<sift>
+			<appender name="FILE-${logFileName}" class="ch.qos.logback.core.rolling.RollingFileAppender">
+				<file>/SPCS_LOG/delcheck/delchk_X15_${logFileName}.log</file>
+				<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+					<pattern>%d %5p --- [%8.8t] %-40.40logger{39}{%4L} : %m%n</pattern>
+				</encoder>
+				<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+					<FileNamePattern>/SPCS_LOG/delcheck/delchk_X15_${logFileName}.%i.log</FileNamePattern>
+					<MinIndex>1</MinIndex>
+					<MaxIndex>7</MaxIndex>
+				</rollingPolicy>
+				<triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+					<MaxFileSize>1024KB</MaxFileSize>
+				</triggeringPolicy>
+			</appender>
+		</sift>
+	</appender>
+
+	<appender name="ROLLING_FILE_CPUCTX16" class="ch.qos.logback.classic.sift.SiftingAppender">
+		<discriminator>
+			<key>logFileName</key>
+			<defaultValue>main</defaultValue>
+		</discriminator>
+		<sift>
+			<appender name="FILE-${logFileName}" class="ch.qos.logback.core.rolling.RollingFileAppender">
+				<file>/SPCS_LOG/delcheck/delchk_X16_${logFileName}.log</file>
+				<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+					<pattern>%d %5p --- [%8.8t] %-40.40logger{39}{%4L} : %m%n</pattern>
+				</encoder>
+				<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+					<FileNamePattern>/SPCS_LOG/delcheck/delchk_X16_${logFileName}.%i.log</FileNamePattern>
+					<MinIndex>1</MinIndex>
+					<MaxIndex>7</MaxIndex>
+				</rollingPolicy>
+				<triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+					<MaxFileSize>1024KB</MaxFileSize>
+				</triggeringPolicy>
+			</appender>
+		</sift>
+	</appender>
+	<appender name="ROLLING_FILE_CPUCTX13" class="ch.qos.logback.classic.sift.SiftingAppender">
+		<discriminator>
+			<key>logFileName</key>
+			<defaultValue>main</defaultValue>
+		</discriminator>
+		<sift>
+			<appender name="FILE-${logFileName}" class="ch.qos.logback.core.rolling.RollingFileAppender">
+				<file>/SPCS_LOG/delcheck/delchk_X13_${logFileName}.log</file>
+				<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+					<pattern>%d %5p --- [%8.8t] %-40.40logger{39}{%4L} : %m%n</pattern>
+				</encoder>
+				<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+					<FileNamePattern>/SPCS_LOG/delcheck/delchk_X13_${logFileName}.%i.log</FileNamePattern>
+					<MinIndex>1</MinIndex>
+					<MaxIndex>7</MaxIndex>
+				</rollingPolicy>
+				<triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+					<MaxFileSize>1024KB</MaxFileSize>
+				</triggeringPolicy>
+			</appender>
+		</sift>
+	</appender>
+	<appender name="ROLLING_FILE_CPUCTX18" class="ch.qos.logback.classic.sift.SiftingAppender">
+		<discriminator>
+			<key>logFileName</key>
+			<defaultValue>main</defaultValue>
+		</discriminator>
+		<sift>
+			<appender name="FILE-${logFileName}" class="ch.qos.logback.core.rolling.RollingFileAppender">
+				<file>/SPCS_LOG/delcheck/delchk_X18_${logFileName}.log</file>
+				<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+					<pattern>%d %5p --- [%8.8t] %-40.40logger{39}{%4L} : %m%n</pattern>
+				</encoder>
+				<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+					<FileNamePattern>/SPCS_LOG/delcheck/delchk_X18_${logFileName}.%i.log</FileNamePattern>
+					<MinIndex>1</MinIndex>
+					<MaxIndex>7</MaxIndex>
+				</rollingPolicy>
+				<triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+					<MaxFileSize>1024KB</MaxFileSize>
+				</triggeringPolicy>
+			</appender>
+		</sift>
+	</appender>
+
+	<springProfile name="default">
+		<root level="info">
+			<appender-ref ref="CONSOLE" />
+		</root>
+	</springProfile>
+	<springProfile name="X17">
+		<root level="debug">
+			<appender-ref ref="ROLLING_FILE_CPUCTX17" />
+		</root>
+	</springProfile>
+	<springProfile name="X14">
+		<root level="debug">
+			<appender-ref ref="ROLLING_FILE_CPUCTX14" />
+		</root>
+	</springProfile>
+	<springProfile name="X15">
+		<root level="debug">
+			<appender-ref ref="ROLLING_FILE_CPUCTX15" />
+		</root>
+	</springProfile>
+	<springProfile name="X16">
+		<root level="debug">
+			<appender-ref ref="ROLLING_FILE_CPUCTX16" />
+		</root>
+	</springProfile>
+	<springProfile name="X13">
+		<root level="debug">
+			<appender-ref ref="ROLLING_FILE_CPUCTX13" />
+		</root>
+	</springProfile>
+	<springProfile name="X18">
+		<root level="debug">
+			<appender-ref ref="ROLLING_FILE_CPUCTX18" />
+		</root>
+	</springProfile>
+</configuration>

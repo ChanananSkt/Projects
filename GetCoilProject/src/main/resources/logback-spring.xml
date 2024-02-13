@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<include resource="org/springframework/boot/logging/logback/base.xml" />
+
+	<appender name="GETCOIL" class="ch.qos.logback.classic.sift.SiftingAppender">
+		<discriminator>
+			<key>logFileName</key>
+			<defaultValue>main</defaultValue>
+		</discriminator>
+		<sift>
+			<appender name="FILE-${logFileName}" class="ch.qos.logback.core.rolling.RollingFileAppender">
+				<file>/SPCS_LOG/test_getcoil/get_coil_${logFileName}.log</file>
+				<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+					<pattern>%d %5p --- [%8.8t] %-40.40logger{39}{%4L} : %m%n</pattern>
+				</encoder>
+				<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+					<FileNamePattern>/SPCS_LOG/test_getcoil/get_coil_${logFileName}.%i.log</FileNamePattern>
+					<MinIndex>1</MinIndex>
+					<MaxIndex>7</MaxIndex>
+				</rollingPolicy>
+				<triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+					<MaxFileSize>1024KB</MaxFileSize>
+				</triggeringPolicy>
+			</appender>
+		</sift>
+	</appender>
+
+
+	<springProfile name="default">
+		<root level="info">
+			<appender-ref ref="CONSOLE" />
+		</root>
+	</springProfile>
+	<springProfile name="dev">
+		<root level="debug">
+			<appender-ref ref="GETCOIL" />
+		</root>
+	</springProfile>
+
+</configuration>

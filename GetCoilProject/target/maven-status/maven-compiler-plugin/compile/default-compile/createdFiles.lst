@@ -1,0 +1,3 @@
+spcs\client\getcoil\GetCoilApplication.class
+spcs\client\getcoil\service\GetCoilProcess.class
+spcs\client\getcoil\service\impl\GetCoilProcessImpl.class
